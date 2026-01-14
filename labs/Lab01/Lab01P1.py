@@ -1,7 +1,7 @@
 #
 # Caleb Hemphill
 # 01/14/2026
-# Example program for receiving input from and displaying out to the terminal
+# Example program for receiving input from and displaying output to the terminal
 #
 
 import datetime
