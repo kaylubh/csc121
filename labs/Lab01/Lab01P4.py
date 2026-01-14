@@ -1,0 +1,25 @@
+#
+# Caleb Hemphill
+# 01/14/2026
+# Calculates the totals and tax for an order
+# Uses hard-coded sample data for a store
+#
+
+# Prices
+book_price = 2.25
+dvd_price = 4.35
+game_price = 5.00
+
+# Input
+# gets number of each item being purchased
+print('Enter the number of items in whole numbers')
+num_books = int(input('Books: '))
+num_dvds = int(input('DVDs: '))
+num_games = int(input('Games: '))
+
+# Processing
+# totals the order purchase price
+
+
+# Output
+# outputs totals to user
