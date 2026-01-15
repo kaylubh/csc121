@@ -9,10 +9,10 @@
 #
 
 # Get the number of miles.
-miles = float(input('Enter number of miles:'))
+miles = float(input('Enter number of miles: '))
 
 # Get the speed in MPH.
-speed = float(input('Enter speed in MPH:'))
+speed = float(input('Enter speed in MPH: '))
 
 # Calculate the travel time.
 travel_time = miles / speed
