@@ -3,6 +3,7 @@
 # 02/09/2026
 # Trish's Swap Shop Calculator
 #
+
 # Global Constants
 BOOK_PRICE = 2.25
 DVD_PRICE = 4.35
