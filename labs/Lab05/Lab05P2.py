@@ -27,27 +27,73 @@ def generate_random_list(list_length, lower_bound, upper_bound):
 
 
 def main():
-    list_1 = []
-    list_2 = []
 
     # Step A
     print('Step A:')
-    list_length = int(input('\tHow many numbers in each list? '))
+    list_length = int(input('How many numbers in each list? '))
 
     # Step B
     print('Step B:')
-    number_lower_bound = int(input('\tWhat is the lower bound for the random number? '))
-    number_upper_bound = int(input('\tWhat is the upper bound for the random number? '))
+    number_lower_bound = int(input('What is the lower bound for the random number? '))
+    number_upper_bound = int(input('What is the upper bound for the random number? '))
 
     # Step C
     print('Step C:')
     list_1 = generate_random_list(list_length, number_lower_bound, number_upper_bound)
-    print(f'\tFirst List: {list_1}')
+    print(f'First List: {list_1}')
 
     # Step D
     print('Step D:')
     list_2 = generate_random_list(list_length, number_lower_bound, number_upper_bound)
-    print(f'\tFirst List: {list_2}')
+    print(f'Second List: {list_2}')
+
+    # Step E
+    print('Step E:')
+    print('List Pairs:')
+    for i in range(len(list_1)):
+        print(f'{list_1[i]} {list_2[i]}')
+
+    # Step F
+    print('Step F:')
+    combined_list = list_1 + list_2
+    print(f'Combined List: {combined_list}')
+
+    # Step G
+    print('Step G:')
+    combined_list.sort()
+    print(f'Sorted List: {combined_list}')
+
+    # Step H
+    print('Step H:')
+    print(f'First Three Elements: {combined_list[:3]}')
+    print(f'Last Three Elements: {combined_list[-3:]}')
+
+    # Step I
+    print('Step I:')
+    print(f'Sum: {sum(combined_list)}')
+
+    # Step J
+    print('Step J:')
+    print(f'Minimum: {min(combined_list)}')
+
+    # Step K
+    print('Step K:')
+    print(f'Maximum: {max(combined_list)}')
+
+    # Step L
+    print('Step L:')
+    print('Remove Random Values:')
+    remove_list = generate_random_list(5, number_lower_bound, number_upper_bound)
+    for element in remove_list:
+        if element in combined_list:
+            print(f'{element} at index {combined_list.index(element)}')
+            combined_list.remove(element)
+        else:
+            print(f'{element} not found in list')
+
+    # Step M
+    print('Step M:')
+    print(f'Final List: {combined_list}')
 
 
 main()
