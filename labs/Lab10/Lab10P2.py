@@ -1,6 +1,6 @@
 #
 # Caleb Hemphill
-# 04/01/2026
+# 04/05/2026
 # Starter Code for Lab 10 Problem 2 (Remove this line before submitting)
 # Trish's Bookstore Inventory System
 #
@@ -29,9 +29,7 @@ def main():
             # DONE - Replace pass with code that will add the item_name,
             #  item_count, and unit_cost data to the dictionaries
 
-            # updates inventory count or starts a new count if it is a new item
-            inventory_counts[item_name] = inventory_counts.get(item_name, 0) + item_count
-            # adds or updates the cost and category for the item
+            inventory_counts[item_name] = item_count
             inventory_costs[item_name] = unit_cost
             inventory_categories[item_name] = category
 
@@ -80,6 +78,7 @@ def main():
             # DONE - Replace pass with code that will display all the inventory
             #  items - HINT Don't we already have a function that does that?
 
+            print()
             display_all_inventory(inventory_counts, inventory_costs, inventory_categories)
 
         elif response != "0":
@@ -121,7 +120,7 @@ def display_all_inventory(inventory_counts, inventory_costs, inventory_categorie
     :return:
     """
 
-    # TODO - Replace pass with code that will iterate through the dictionaries
+    # DONE - Replace pass with code that will iterate through the dictionaries
     #  that are passed in and display the inventory. If the dictionaries are
     #  empty the display "== Empty =="
 
@@ -130,7 +129,10 @@ def display_all_inventory(inventory_counts, inventory_costs, inventory_categorie
         print(f"{'Item Name':14}  {'Count':5}  {'Unit Cost':9}  {'Category':20}")
         print(f"{'---------':14}  {'-----':5}  {'---------':9}  {'--------':20}")
         # items
-        
+        for item in inventory_counts:
+            print(
+                f"{item:14}  {inventory_counts[item]:5}  {inventory_costs[item]:9.2f}  {inventory_categories[item]:20}")
+
     else:
         print('== Empty ==')
 
