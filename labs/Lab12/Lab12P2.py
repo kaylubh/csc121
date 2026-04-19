@@ -1,14 +1,13 @@
 #
 # Caleb Hemphill
-# 04/15/2026
+# 04/19/2026
 # Inheritance and Polymorphism - Problem 2
 #
 
 import pickle
-from inventory_item import InventoryItem
 from book import Book
 from game import Game
-from game import DVD
+from dvd import DVD
 
 
 def main():
@@ -26,9 +25,22 @@ def main():
             if answer_inner not in ['1', '2', '3']:
                 print('Enter 1, 2, or 3.')
 
-        # TODO - Create an appropriate object, ask the user for item input
+        # DONE - Create an appropriate object, ask the user for item input
         #  using the object's method, then append the object to the inventory
         #  list.
+
+        if answer_inner == '1':
+            new_book = Book()
+            new_book.get_item_input()
+            inventory_list.append(new_book)
+        if answer_inner == '2':
+            new_game = Game()
+            new_game.get_item_input()
+            inventory_list.append(new_game)
+        if answer_inner == '3':
+            new_dvd = DVD()
+            new_dvd.get_item_input()
+            inventory_list.append(new_dvd)
 
         answer_outer = input('Do you want to enter more items? ')
 
@@ -47,11 +59,19 @@ def load_inventory():
     """
 
     inventory_list = []
-    # TODO - Attempt to load inventory data from a binary file named
+    # DONE - Attempt to load inventory data from a binary file named
     #  inventory.dat. If the file exists, load it into the inventory list.
     #  If the file does not exist, leave the inventory list empty.
 
+    try:
+        inventory_file = open('inventory.dat', 'rb')
+        inventory_list = pickle.load(inventory_file)
+        inventory_file.close()
+    except FileNotFoundError:
+        pass
+
     return inventory_list
+
 
 def save_inventory(inventory_list):
     """
@@ -62,10 +82,15 @@ def save_inventory(inventory_list):
     :return:
     """
 
-    # TODO - Open a binary file named inventory.dat and dump the inventory
+    # DONE - Open a binary file named inventory.dat and dump the inventory
     #  list that has been passed in as a parameter to that file.
 
+    inventory_file = open('inventory.dat', 'wb')
+    pickle.dump(inventory_list, inventory_file)
+    inventory_file.close()
+
     print('Inventory.dat file was created.')
+
 
 def display_inventory(inventory_list):
     """
@@ -79,9 +104,14 @@ def display_inventory(inventory_list):
     print()
     print('Current Inventory')
     print('-----------------')
-    # TODO - Display the inventory items that are in the inventory list
+    # DONE - Display the inventory items that are in the inventory list
     #  that was passed in as a parameter. If the list is empty, display
     #  "Inventory is empty."
+    if inventory_list:
+        for item in inventory_list:
+            print(item)
+    else:
+        print('Inventory is empty.')
     print('-----------------')
     print()
 
